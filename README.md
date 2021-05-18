@@ -4,7 +4,7 @@ Assignment Uploads\
 Name  :W.C.A. ALWIS\
 Index :19000065\
 Reg   :2019/CS/006\
-\
+
 ## Introduction | Assignment 1
 
     Question 1 - The temperature is 35C; convert this temperature into Fahrenheit.
