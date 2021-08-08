@@ -1,21 +1,14 @@
-import encrypt.encrypt
-import decrypt.decrypt
+object CaeserCipher extends App{
+  val str = "abcdexyz"
+  val n = 10
 
-object Main extends App{
+  def encrypt = (c:Char, key:Int) => ((c.toUpper + key + 26 - 'A') % 26 + 'A').toChar
+  def decrypt = (c:Char, key:Int) => ((c.toUpper - key + 26 - 'A') % 26 + 'A').toChar
 
-  //Initial plaintext
-  val str:String = "Caesar cipher"
+  def cipher = (algo: (Char, Int)=>Char, text: String, key: Int) => text.map(algo(_, key))
 
-  //Key
-  val n:Int = 20
+  val cipherText = cipher(encrypt, str, n)
+  val plainText = cipher(decrypt, cipherText, n)
 
-  println("Initial Plaintext   : " + str)
-
-  //Encrypting the initial plaintext
-  val cipherText = new encrypt(str, n).cipherText
-  println("Encrypted Ciphertext: " + cipherText)
-
-  //Decrypting the ciphertext
-  val plainText = new decrypt(cipherText, n).plainText
-  println("Decrypted Plaintext : " + plainText)
+  println(str,cipherText, plainText)
 }
